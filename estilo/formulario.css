@@ -61,9 +61,6 @@
       padding: 30px;
       text-align: center;
   }
-
-
-  
   .inpu-animacao {
     
     border: hidden;
@@ -109,50 +106,49 @@
 
 
   }
-  .formulario-Header-h2{
-    padding: 10px;
-    text-align: center;
-}
-  .formulario-Header-h2-animacao{
-    
--webkit-animation-name: formulario-Header-h2-animacao;
-        animation-name: formulario-Header-h2-animacao;
--webkit-animation-duration: 1s;
-        animation-duration: 1s;
--webkit-animation-delay: 0.8s;
-        animation-delay: 0.8s;
--webkit-animation-fill-mode: both;
-        animation-fill-mode: both;
-}
-@-webkit-keyframes formulario-Header-h2-animacao {
-    0% {
-      transform: scale(0);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  @keyframes formulario-Header-h2-animacao {
-    0% {
-      transform: scale(0);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-    100% {
-      transform: scale(1);
-    }
-
-
-  }
 
   .btn-cd {
     float: right;
     border-radius: 40px;
     margin: 10px 10px;
 }
+.formulario-Header-h2{
+  padding: 10px;
+  text-align: end;
+}
+.formulario-Header-h2-animacao{
+  
+-webkit-animation-name: formulario-Header-h2-animacao;
+      animation-name: formulario-Header-h2-animacao;
+-webkit-animation-duration: 1s;
+      animation-duration: 1s;
+-webkit-animation-delay: 0.8s;
+      animation-delay: 0.8s;
+-webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+}
+@-webkit-keyframes formulario-Header-h2-animacao {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes formulario-Header-h2-animacao {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 
+
+}
 

@@ -72,6 +72,7 @@ body{
   }
   
   .miniCard {
+    border-style: hidden;
     cursor: pointer;
     transition: 0.4s;
     display: inline-block;
