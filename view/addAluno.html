@@ -13,47 +13,82 @@
 <body>
     <div class="alinhamento-bv">
         <div class="container-b">
-            <form action="" method="post">
+            <form action="../view/sistema.html" method="post" id="form_addAluno">
                 <div class="formulario-Header">
                     <h3 class="formulario-Header-h3" >Cadastror de Aluno</h3>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-md-6 p-1 ">
-                      <input type="name" name="nome-aluno" class="inpu-animacao" placeholder="Nome Aluno">
+                    <div class="col-12 col-md-6  form_campo">
+                      <input type="name" name="nome_aluno" id="nome_aluno" class="inpu-animacao" placeholder="Nome Aluno">
+                      <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
+                      <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
+                      <small>Error messagem</small>
                     </div>
-                    <div class="col-12 col-md-6 p-1 ">
-                      <input type="text" name="email-aluno" class="inpu-animacao" placeholder="Email do Aluno">
+
+                    <div class="col-12 col-md-6  form_campo ">
+                      <input type="text" name="email-aluno" id="email_aluno" class="inpu-animacao" placeholder="Email do Aluno">
+                      <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
+                      <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
+                      <small>Error messagem</small>
                     </div>
-                    <div class="col-12 col-md-6 p-1 ">
-                        <input type="text" name="mae-aluno" class="inpu-animacao" placeholder="Nome da Mãe">
-                      </div>
+
+                    <div class="col-12 col-md-6  form_campo ">
+                        <input type="text" name="mae-aluno" id="mae_aluno" class="inpu-animacao" placeholder="Nome da Mãe">
+                        <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
+                        <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
+                        <small>Error messagem</small>
+                    </div>
                       
-                      <div class="col-12 col-md-6 p-1 ">
+                    <div class="col-12 col-md-6  form_campo ">
                         <input type="text" name="pai-aluno" class="inpu-animacao" placeholder="Nome do Pai">
-                      </div>
-                      <div class="col-12 col-md-6 p-1 ">
-                        <input type="text" name="contato-mae-aluno" class="inpu-animacao" placeholder="Contato da Mãe">
-                      </div>
+                        <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
+                        <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
+                        <small>Error messagem</small>
+                    </div>
 
-                      <div class="col-12 col-md-6 p-1 ">
-                        <input type="text" name="contato-pai-aluno" class="inpu-animacao" placeholder="Contato do Pai">
-                      </div>
-                      <div class="col-12 col-md-6 p-1 ">
-                        <input type="text" name="escola-aluno" class="inpu-animacao" placeholder="Escola onde estuda">
-                      </div>
+                    <div class="col-12 col-md-6  form_campo ">
+                        <input type="text" name="contato-mae-aluno" id="contato_mae_aluno" class="inpu-animacao" placeholder="Contato da Mãe">
+                        <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
+                        <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
+                        <small>Error messagem</small>
+                    </div>
+
+                    <div class="col-12 col-md-6  form_campo ">
+                        <input type="text" name="contato-pai-aluno"  class="inpu-animacao" placeholder="Contato do Pai">
+                        <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
+                        <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
+                        <small>Error messagem</small>
+                    </div>
+
+                    <div class="col-12 col-md-6  form_campo ">
+                        <input type="text" name="escola-aluno" id="escola_aluno" class="inpu-animacao" placeholder="Escola onde estuda">
+                        <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
+                        <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
+                        <small>Error messagem</small>
+                    </div>
                       
-                      <div class="col-12 col-md-6 p-1 ">
-                        <input type="date" name="nacimento-aluno" class="inpu-animacao" placeholder="Data de nacimento">
-                      </div>
-                      <div class="col-12 col-md-6 p-1 ">
-                        <input type="number" name="total-h-aluno" class="inpu-animacao" placeholder="Carga horária">
-                      </div>
-                      <div class="col-12 col-md-6 p-1">
+                    <div class="col-12 col-md-6  form_campo ">
+                        <input type="date" name="nacimento-aluno" id="nacimento_aluno" class="inpu-animacao" placeholder="Data de nacimento">
+                        <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
+                        <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
+                        <small>Error messagem</small>
+                    </div>
 
-                        <input type="number" step="0.01" min="0" name="valor-h-aluno" class="inpu-animacao" placeholder="Valor hora">
-                      </div>
+                    <div class="col-12 col-md-6  form_campo ">
+                        <input type="number" name="total-h-aluno" id="total_h_aluno" class="inpu-animacao" placeholder="Carga horária">
+                        <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
+                        <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
+                        <small>Error messagem</small>
+                    </div>
 
-                      <div class="col-12 col-md-6 p-1">
+                    <div class="col-12 col-md-6  form_campo">
+                        <input type="number" step="0.01" min="0" name="valor-h-aluno" id="valor_h_aluno" class="inpu-animacao" placeholder="Valor hora">
+                        <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
+                        <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
+                        <small>Error messagem</small>
+                    </div>
+
+                      <div class="col-12 col-md-6 ">
                         <label class="formulario-Header-h2-animacao formulario-Header-h2" for="">ESCOLHA O TURNO</label>
                         <div class="inpu-animacao">
                           <div class="inputR1">
@@ -76,7 +111,7 @@
             </form>
         </div>
     </div>
-
+    <script src="../js/addAluno.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

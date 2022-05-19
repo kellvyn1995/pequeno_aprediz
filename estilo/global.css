@@ -9,4 +9,38 @@ body{
 .formulario-Header-h3{
     color: white;
 }
+/* inpunt sucesso */
+.form_campo.success input{
+    border: 3px solid #4ECA64;
+}
+.form_campo.success i .img-success{ 
+    visibility: visible;
+    margin-top: -30px;
+    position: absolute;
+}
+.form_campo small {
+    visibility: hidden;
+    margin: 0px;
+}
 
+
+.form_campo.error input{
+    border: 3px solid #DB5A5A;
+}
+.form_campo.error i .img-error{
+    visibility: visible;
+    margin-top: -30px;
+    position: absolute;
+    right: 0px;
+}
+.form_campo.error small{
+    color: #DB5A5A;
+    visibility: visible;
+}
+.form_campo i{
+    position: relative;
+    /* position: absolute; */
+    top: 50px;
+    right: 50px;
+    visibility: hidden;
+}
