@@ -9,22 +9,58 @@
 <body>
     <pre>
         <?php
-            require_once '../model/classePessoa.php';
-            require_once '../model/classeProfessor.php';
-            require_once '../model/classeAluno.php';
+            session_start();
+            // require_once '../model/classePessoa.php';
+            // require_once '../model/classeProfessor.php';
+            // require_once '../model/classeAluno.php';
+            require_once '../model/conexao.php';
+            require_once '../model/logado.php';
+            $logar = new logar();
+            $email_pro = addslashes('kelvynstar@gmail.com');
+            $senha_pro = addslashes(00700722);
 
-            $p1= new Professor();
-            $p1->setNome("kellvyn"); 
-            $p1->setEmail("kellvynstar@gmail.com"); 
-            $p1->setTelefone("99531128"); 
-            $p1->setDisponibilidade("Tarde"); 
+            //$logar->login($email_pro,$senha_pro);
+            if ($logar->login($email_pro, $senha_pro) == true) {
+                echo 'Usuario encontrado logado <br>';
+                // echo ''.$_SESSION['nome'].'';
+            }else {
+                echo 'erro na tentativa de login';
+            }
+            
+            
 
-            $aluno = new Aluno(40,5);
-            $aluno->setNome("bruna"); 
+        
+            
+            
+
+            // function lista(){
+            //     $pdo = conectar();
+            //     $array = array();
+            //     $sql = "SELECT * FROM professores WHERE id_professor = 1";
+            //     $sql = $pdo->prepare($sql);
+            //     $sql->execute();
+            //     if ($sql->rowCount() > 0) {
+            //         $array = $sql->fetch();
+            //     }
+            //     return $array;
+            // }
+            // $teste = lista();
+            // print_r($teste);
+
+            // $p1= new Professor();
+            // $p1->setNome($teste['nome_pro']); 
+            // $p1->setEmail($teste['email_pro']); 
+            // $p1->setTelefone($teste['telefone']); 
+            // $p1->setDisponibilidade("Tarde"); 
+
+            // $aluno = new Aluno(40,5);
+            // $aluno->setNome("bruna"); 
 
 
-            print_r($p1);
-            print_r($aluno);
+            // print_r($p1);
+            // print_r($aluno);
+
+
         ?>
     </pre>
 </body>

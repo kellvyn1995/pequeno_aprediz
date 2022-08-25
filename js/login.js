@@ -3,7 +3,7 @@ const userUsuario = document.getElementById('userUsuario')
 const senhaUsuario = document.getElementById('senhaUsuario')
 
 form.addEventListener('submit',(e) =>{
-    e.preventDefault() //tira o conportamento padrão do navegador
+   //e.preventDefault() //tira o conportamento padrão do navegador
     checkInputs() //função
 })
 
@@ -25,7 +25,7 @@ function checkInputs() {
         if (senhaUsuarioValue > 8) {
             //adicionar a classe sucesso
             successValidation(senhaUsuario)
-            window.location.href = "../view/sistema.html";
+            //window.location.href = "../controller/login.php";
             
         } else {
             //adicionar a classe error

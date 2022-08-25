@@ -9,12 +9,19 @@ class Aluno extends Pessoa{
     private $carga_hora;
     private $valor_hora;
     private $mensalidade;
+    private $turno;
 
     // metodos especiais 
     function __construct($carga_hora,$valor_hora)
     {
-        $this->mensalidade = $carga_hora * $valor_hora;
+        if ($carga_hora == false && $valor_hora == false) {
+           
+        } else {
+            $this->mensalidade = $carga_hora * $valor_hora;
+        }
+        
     }
+    
     
     //metodos
 
@@ -174,6 +181,26 @@ class Aluno extends Pessoa{
     public function setMensalidade($mensalidade)
     {
         $this->mensalidade = $mensalidade;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of turno
+     */ 
+    public function getTurno()
+    {
+        return $this->turno;
+    }
+
+    /**
+     * Set the value of turno
+     *
+     * @return  self
+     */ 
+    public function setTurno($turno)
+    {
+        $this->turno = $turno;
 
         return $this;
     }

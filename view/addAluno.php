@@ -1,3 +1,6 @@
+<?php
+include_once '../controller/verifica.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,7 +16,7 @@
 <body>
     <div class="alinhamento-bv">
         <div class="container-b">
-            <form action="../view/sistema.html" method="post" id="form_addAluno">
+            <form action="../controller/addAluno.php" method="POST" id="form_addAluno">
                 <div class="formulario-Header">
                     <h3 class="formulario-Header-h3" >Cadastror de Aluno</h3>
                 </div>
@@ -26,63 +29,63 @@
                     </div>
 
                     <div class="col-12 col-md-6  form_campo ">
-                      <input type="text" name="email-aluno" id="email_aluno" class="inpu-animacao" placeholder="Email do Aluno">
+                      <input type="text" name="email_aluno" id="email_aluno" class="inpu-animacao" placeholder="Email do Aluno">
                       <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                       <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                       <small>Error messagem</small>
                     </div>
 
                     <div class="col-12 col-md-6  form_campo ">
-                        <input type="text" name="mae-aluno" id="mae_aluno" class="inpu-animacao" placeholder="Nome da Mãe">
+                        <input type="text" name="mae_aluno" id="mae_aluno" class="inpu-animacao" placeholder="Nome da Mãe">
                         <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                         <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                         <small>Error messagem</small>
                     </div>
                       
                     <div class="col-12 col-md-6  form_campo ">
-                        <input type="text" name="pai-aluno" class="inpu-animacao" placeholder="Nome do Pai">
+                        <input type="text" name="pai_aluno" class="inpu-animacao" placeholder="Nome do Pai">
                         <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                         <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                         <small>Error messagem</small>
                     </div>
 
                     <div class="col-12 col-md-6  form_campo ">
-                        <input type="text" name="contato-mae-aluno" id="contato_mae_aluno" class="inpu-animacao" placeholder="Contato da Mãe">
+                        <input type="text" name="contato_mae_aluno" id="contato_mae_aluno" class="inpu-animacao" placeholder="Contato da Mãe">
                         <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                         <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                         <small>Error messagem</small>
                     </div>
 
                     <div class="col-12 col-md-6  form_campo ">
-                        <input type="text" name="contato-pai-aluno"  class="inpu-animacao" placeholder="Contato do Pai">
+                        <input type="text" name="contato_pai_aluno"  class="inpu-animacao" placeholder="Contato do Pai">
                         <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                         <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                         <small>Error messagem</small>
                     </div>
 
                     <div class="col-12 col-md-6  form_campo ">
-                        <input type="text" name="escola-aluno" id="escola_aluno" class="inpu-animacao" placeholder="Escola onde estuda">
+                        <input type="text" name="escola_aluno" id="escola_aluno" class="inpu-animacao" placeholder="Escola onde estuda">
                         <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                         <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                         <small>Error messagem</small>
                     </div>
                       
                     <div class="col-12 col-md-6  form_campo ">
-                        <input type="date" name="nacimento-aluno" id="nacimento_aluno" class="inpu-animacao" placeholder="Data de nacimento">
+                        <input type="date" name="nascimento_aluno" id="nacimento_aluno" class="inpu-animacao" placeholder="Data de nacimento">
                         <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                         <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                         <small>Error messagem</small>
                     </div>
 
                     <div class="col-12 col-md-6  form_campo ">
-                        <input type="number" name="total-h-aluno" id="total_h_aluno" class="inpu-animacao" placeholder="Carga horária">
+                        <input type="number" name="total_h_aluno" id="total_h_aluno" class="inpu-animacao" placeholder="Carga horária">
                         <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                         <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                         <small>Error messagem</small>
                     </div>
 
                     <div class="col-12 col-md-6  form_campo">
-                        <input type="number" step="0.01" min="0" name="valor-h-aluno" id="valor_h_aluno" class="inpu-animacao" placeholder="Valor hora">
+                        <input type="number" step="0.01" min="0" name="valor_h_aluno" id="valor_h_aluno" class="inpu-animacao" placeholder="Valor hora">
                         <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                         <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                         <small>Error messagem</small>
@@ -92,12 +95,12 @@
                         <label class="formulario-Header-h2-animacao formulario-Header-h2" for="">ESCOLHA O TURNO</label>
                         <div class="inpu-animacao">
                           <div class="inputR1">
-                            <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="1" checked>
+                            <input class="form-check-input" type="radio" name="radios" id="Radios1" value="1" checked>
                             <label for="Radios1">turno da manhã</label>
                           </div>
                           
                           <div class="inputR2">
-                            <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="1">
+                            <input class="form-check-input" type="radio" name="radios" id="Radios2" value="2">
                             <label for="Radios2">Turno da tarde</label>
                           </div>
                         </div>

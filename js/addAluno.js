@@ -6,10 +6,9 @@ const escola_aluno = document.getElementById('escola_aluno')
 const nacimento_aluno = document.getElementById('nacimento_aluno')
 const total_h_aluno = document.getElementById('total_h_aluno')
 const valor_h_aluno = document.getElementById('valor_h_aluno')
-//const campos = ['nome_aluno', 'mae_aluno','contato_mae_aluno','escola_aluno','nacimento_aluno','total_h_aluno','valor_h_aluno'];
 
 form_addAluno.addEventListener('submit',(e) =>{
-    e.preventDefault() //tira o conportamento padrão do navegador
+   // e.preventDefault() //tira o conportamento padrão do navegador
     checkInputs() //função
 })
 

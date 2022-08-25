@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 body{
     display : flex; 
     justify-content : center;  
     background-color: #e0c445;
-    /* min-height : 800px; */
-    font-family: Poppins; 
+    font-family: 'Inter', sans-serif;
 }
 .formulario-Header-h3{
     color: white;
