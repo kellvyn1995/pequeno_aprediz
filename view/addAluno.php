@@ -22,70 +22,70 @@ include_once '../controller/verifica.php';
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-6  form_campo">
-                      <input type="name" name="nome_aluno" id="nome_aluno" class="inpu-animacao" placeholder="Nome Aluno">
+                      <input type="name" name="nome_aluno" id="nome_aluno" class="inpu-animacao" placeholder="Nome Aluno" value="">
                       <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                       <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                       <small>Error messagem</small>
                     </div>
 
                     <div class="col-12 col-md-6  form_campo ">
-                      <input type="text" name="email_aluno" id="email_aluno" class="inpu-animacao" placeholder="Email do Aluno">
+                      <input type="text" name="email_aluno" id="email_aluno" class="inpu-animacao" placeholder="Email do Aluno" value="">
                       <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                       <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                       <small>Error messagem</small>
                     </div>
 
                     <div class="col-12 col-md-6  form_campo ">
-                        <input type="text" name="mae_aluno" id="mae_aluno" class="inpu-animacao" placeholder="Nome da Mãe">
+                        <input type="text" name="mae_aluno" id="mae_aluno" class="inpu-animacao" placeholder="Nome da Mãe" value="">
                         <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                         <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                         <small>Error messagem</small>
                     </div>
                       
                     <div class="col-12 col-md-6  form_campo ">
-                        <input type="text" name="pai_aluno" class="inpu-animacao" placeholder="Nome do Pai">
+                        <input type="text" name="pai_aluno" class="inpu-animacao" placeholder="Nome do Pai" value="">
                         <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                         <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                         <small>Error messagem</small>
                     </div>
 
                     <div class="col-12 col-md-6  form_campo ">
-                        <input type="text" name="contato_mae_aluno" id="contato_mae_aluno" class="inpu-animacao" placeholder="Contato da Mãe">
+                        <input type="text" name="contato_mae_aluno" id="contato_mae_aluno" class="inpu-animacao" placeholder="Contato da Mãe" value="">
                         <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                         <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                         <small>Error messagem</small>
                     </div>
 
                     <div class="col-12 col-md-6  form_campo ">
-                        <input type="text" name="contato_pai_aluno"  class="inpu-animacao" placeholder="Contato do Pai">
+                        <input type="text" name="contato_pai_aluno"  class="inpu-animacao" placeholder="Contato do Pai" value="">
                         <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                         <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                         <small>Error messagem</small>
                     </div>
 
                     <div class="col-12 col-md-6  form_campo ">
-                        <input type="text" name="escola_aluno" id="escola_aluno" class="inpu-animacao" placeholder="Escola onde estuda">
+                        <input type="text" name="escola_aluno" id="escola_aluno" class="inpu-animacao" placeholder="Escola onde estuda" value="">
                         <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                         <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                         <small>Error messagem</small>
                     </div>
                       
                     <div class="col-12 col-md-6  form_campo ">
-                        <input type="date" name="nascimento_aluno" id="nacimento_aluno" class="inpu-animacao" placeholder="Data de nacimento">
+                        <input type="date" name="nascimento_aluno" id="nacimento_aluno" class="inpu-animacao" placeholder="Data de nacimento" value="">
                         <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                         <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                         <small>Error messagem</small>
                     </div>
 
                     <div class="col-12 col-md-6  form_campo ">
-                        <input type="number" name="total_h_aluno" id="total_h_aluno" class="inpu-animacao" placeholder="Carga horária">
+                        <input type="number" name="total_h_aluno" id="total_h_aluno" class="inpu-animacao" placeholder="Carga horária" value="">
                         <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                         <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                         <small>Error messagem</small>
                     </div>
 
                     <div class="col-12 col-md-6  form_campo">
-                        <input type="number" step="0.01" min="0" name="valor_h_aluno" id="valor_h_aluno" class="inpu-animacao" placeholder="Valor hora">
+                        <input type="number" step="0.01" min="0" name="valor_h_aluno" id="valor_h_aluno" class="inpu-animacao" placeholder="Valor hora" value="">
                         <i><img class="img-success" src="../icones/success-icon.svg" alt=""></i>
                         <i><img class="img-error" src="../icones/error-icon.svg" alt=""></i>
                         <small>Error messagem</small>

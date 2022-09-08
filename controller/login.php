@@ -15,12 +15,12 @@ if (isset($_POST['userUsuario']) && !empty($_POST['userUsuario']) && isset($_POS
     echo "<script>top.window.location='../view/sistema.php';</script>";
   }else {
     // usuario e senha incoretos
-    //echo "<script>top.window.location='../view/login.php?pg=1';</script>";
-    echo 'usuario não emcontrado';
+    echo "<script>top.window.location='../view/login.HTML?pg=1';</script>";
+    // echo 'usuario não emcontrado';
   }
 }else {
   // ser os dados não forem informados, será redirecionado para pagina de login
-  //echo "<script>top.window.location='../view/login.php?erro=2';</script>";
-  echo 'email ou senha vaziu';
+  echo "<script>top.window.location='../view/login.HTML?erro=2';</script>";
+  // echo 'email ou senha vaziu';
 }
  ?>

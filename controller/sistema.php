@@ -2,7 +2,7 @@
 
 switch ($_POST['acao']) {
     case 'diarios':
-        echo '<script>window.location.href = "../view/diarios.html";</script>';
+        echo '<script>window.location.href = "../controller/verifica_diario.php";</script>';
         break;
     case 'professores':
         echo '<script>window.location.href = "../view/professores.php";</script>';

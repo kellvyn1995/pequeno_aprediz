@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../estilo/diario.css">
+    <title>Abrir diario</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="imagem">
+                 
+            </div>
+            <div class="contem">
+                <form class="form" id="form" action="../controller/diarios.php" method="POST">
+
+                    <div class="form-control ">
+                        <label for="userUsuario">Selecione um data.</label>
+                    </div>
+                 
+                    <div class="form-control ">
+                      <label for="data_diario">Data:</label>
+                      <input type="date" id="data_diario" name="data_diario">
+                  </div>
+
+                    <button type="submit" name="acao" value="abrir_diario" >Abrir Novo Diário</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</script>
+</body>
+</html>

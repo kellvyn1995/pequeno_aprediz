@@ -1,11 +1,15 @@
+
+
 const form = document.getElementById('form')
 const userUsuario = document.getElementById('userUsuario')
 const senhaUsuario = document.getElementById('senhaUsuario')
 
+
 form.addEventListener('submit',(e) =>{
-   //e.preventDefault() //tira o conportamento padrão do navegador
+//    e.preventDefault() //tira o conportamento padrão do navegador
     checkInputs() //função
 })
+
 
 function checkInputs() {
     const userUsuarioValue = userUsuario.value.trim() // o trim vai retira os espaços vazios

@@ -7,6 +7,7 @@ const nacimento_aluno = document.getElementById('nacimento_aluno')
 const total_h_aluno = document.getElementById('total_h_aluno')
 const valor_h_aluno = document.getElementById('valor_h_aluno')
 
+
 form_addAluno.addEventListener('submit',(e) =>{
    // e.preventDefault() //tira o conportamento padrão do navegador
     checkInputs() //função

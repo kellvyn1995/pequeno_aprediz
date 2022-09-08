@@ -15,7 +15,7 @@ class Aluno extends Pessoa{
     function __construct($carga_hora,$valor_hora)
     {
         if ($carga_hora == false && $valor_hora == false) {
-           
+            $this->mensalidade = false;
         } else {
             $this->mensalidade = $carga_hora * $valor_hora;
         }

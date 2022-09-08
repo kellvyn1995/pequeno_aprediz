@@ -1,5 +1,5 @@
 <?php
-echo "teste ";
+header("Location: view/login.html");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

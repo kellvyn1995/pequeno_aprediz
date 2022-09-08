@@ -15,7 +15,7 @@ include_once '../controller/verifica.php';
     
     <div class="demo">
         <div class="mainCard">
-            <div class="mainCardHeader"><?php if(isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])){ echo ''.$_SESSION['nome_pro']. ' conectado ';} ?></div>
+            <div class="mainCardHeader"><?php if(isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])){ echo ''.$_SESSION['nome_pro']. ' ';} ?></div>
                 <div class="mainCardContent">
                 <form action="../controller/sistema.php" method="POST">
                     <button class="miniCard" id="icone" type="submit" name="acao" value="diarios"><br>

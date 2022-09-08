@@ -62,12 +62,12 @@
       text-align: center;
   }
   .inpu-animacao {
-    
+    margin-left: 1rem;
     border: hidden;
     transition: 0.4s;
     display: inline-block;
-    margin-top: 5px;
-    padding: 10px;
+    margin-top: 0.5rem;
+    padding: 0.8rem;
     width: 90%;
     background-color: white;
     border-radius: 40px;
@@ -150,5 +150,10 @@
   }
 
 
+}
+
+/* diarios */
+.diarioBTN{
+  font-size: 1.5rem;
 }
 

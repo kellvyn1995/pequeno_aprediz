@@ -28,21 +28,4 @@ class logar extends Professor{
 
 }
 
-function addUsuario($nome_pro,$email_pro,$senha_pro,$telefone,$semanal){
-    $pdo = conectar();
-    try{
-    $query = $pdo->prepare("INSERT INTO professores (nome_pro,email_pro,senha_pro,telefone,semanal) VALUES (:nome_pro,:email_pro,:senha_pro,:telefone,:semanal)");
-    //PDOStatement :: bindValue - Vincula um valor a um parâmetro
-    $query->bindValue(":nome_pro",$nome_pro);
-    $query->bindValue(":email_pro",$email_pro);
-    $query->bindValue(":senha_pro",$senha_pro);
-    $query->bindValue(":telefone",$telefone);
-    $query->bindValue(":semanal",$semanal);
-    $query->execute();
-    return true;
-    } catch (PDOException $e) {
-            echo "Erro ao cadastrar novo usuario: ".$e->getMessage();
-          return false;
-        }
-}
 ?>

@@ -1,5 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+  body {
+    display : flex;
+    align-items : center;
+    justify-content : center;  
+    background-color: #e0c445;
+    min-height : 800px;
+    font-family: Poppins;
+  }
+.container{
+    position: relative;
+    width: 1100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+.container .card{
+    position: relative;
+    max-width: 300px;
+    /* height: 520px; */
+    background-color: #fff;
+    margin: 30px 10px;
+    padding: 20px 15px;
 
-.formulario-Header-h3{
-    color: white;
+    display:  flex;
+    flex-direction: column;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: 0.3 ease-in-out;
+    border-radius: 15px;
 }
 
+
+.container .card .imagem .logo{
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/*formulario*/
+.form-control {
+    margin-bottom: 1px;
+    padding-bottom: 2px;
+    position: relative;
+}
+/*label*/
+.form-control label {
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #6d6e63;
+}
+/*estilo do inpunt*/
+.form-control input{
+    border: 2px solid #9c9fac;
+    border-radius: 5px;
+    outline: 0;
+    
+    display: block;
+
+    font-size: 14px;
+
+    width: 91%;
+    padding: 10px;
+
+}
+/* input error e sucesso*/
+.form-control.success input{
+    border: 3px solid #4ECA64;
+}
+.form-control.error input{
+    border: 3px solid #DB5A5A;
+}
+.form-control.success i .img-success{ 
+    visibility: visible;
+}
+.form-control.error i .img-error{
+    visibility: visible;
+}
+.form-control small {
+    visibility: hidden;
+    position: 0;
+    margin-top: 5px;
+    font-size: 14px;
+    
+}
+.form-control.error small{
+    color: #DB5A5A;
+    visibility: visible;
+}
+.form-control i{
+    position: absolute;
+    top: 35px;
+    right: 10px;
+    visibility: hidden;
+}
+
+.form button {
+    background-color: #e0c445;
+    border-radius: 5px;
+    color: #fff;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    width: 100%;
+
+    margin-top: 5px;
+
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: #7e6c1b;
+    transition: 0.3s;
+}

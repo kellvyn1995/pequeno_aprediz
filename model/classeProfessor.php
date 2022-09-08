@@ -61,7 +61,7 @@ class Professor extends Pessoa{
     function cadastra_professor($novo_professor,$senha_pro){
         $pdo = conectar();
         try {
-            $query = $pdo->prepare("INSERT INTO professores (nome_pro, email_pro, nascimento,senha_pro, telefone, rua_pro, bairro_pro, numero_pro, estado_pro, cep_pro, semanal, adicionais, admin_pro, diarios, professor, alunos, ponto, cad_alunos, cad_pro, informa) VALUES (:nome_pro, :email_pro, :nascimento, :senha_pro, :telefone, :rua_pro, :bairro_pro, :numero_pro, :estado_pro, :cep_pro, :semanal, :adicionais, '0', '0', '0', '0', '0', '0', '0', '0')");
+            $query = $pdo->prepare("INSERT INTO professores (nome_pro, email_pro, nascimento,senha_pro, telefone, rua_pro, bairro_pro, numero_pro, estado_pro, cep_pro, semanal, adicionais, admin_pro, diarios, professor, alunos, ponto, cad_alunos, cad_pro, informa) VALUES (:nome_pro, :email_pro, :nascimento, :senha_pro, :telefone, :rua_pro, :bairro_pro, :numero_pro, :estado_pro, :cep_pro, :semanal, :adicionais, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)");
             $query->bindValue(":nome_pro", $novo_professor->getNome());
             $query->bindValue(":email_pro", $novo_professor->getEmail());
             $query->bindValue(":nascimento", $novo_professor->getNascimento());
@@ -78,6 +78,125 @@ class Professor extends Pessoa{
             return true;
         } catch (PDOException $e) {
             echo "Error ao cadastra novo professor: ".$e->getMessage();
+            return false;
+        }
+    }
+
+    function atualizar_acesso($diarios, $professor, $alunos, $ponto, $cad_alunos, $cad_pro, $informa, $id){
+        $pdo = conectar();
+        try {
+            $query = $pdo->prepare("UPDATE professores SET diarios = :diarios, professor = :professor, alunos = :alunos, ponto = :ponto, cad_alunos = :cad_alunos, cad_pro = :cad_pro, informa = :informa WHERE professores.id_professor =:id");
+            $query->bindValue(":diarios",$diarios);
+            $query->bindValue(":professor",$professor);
+            $query->bindValue(":alunos",$alunos);
+            $query->bindValue(":ponto",$ponto);
+            $query->bindValue(":cad_alunos",$cad_alunos);
+            $query->bindValue(":cad_pro",$cad_pro);
+            $query->bindValue(":informa",$informa);
+            $query->bindValue(":id",$id);
+            $query->execute();
+            return true;
+        } catch (PDOException $e) {
+            echo "Error ao mudar nível de acesso: ".$e->getMessage();
+            return false;
+        }
+    }
+
+    function abrir_diario($data_diario){
+        $pdo = conectar();
+        $condicao_diario = 1;
+        try {
+            $query = $pdo->prepare("INSERT INTO diario (data_diario, condicao_diario) VALUES (:data_diario, :condicao_diario)");
+            $query->bindValue(":data_diario", $data_diario);
+            $query->bindValue(":condicao_diario",$condicao_diario);
+            $query->execute();
+            return true;
+        } catch (PDOException $e) {
+            echo "Erro ao abrir novo diario: ".$e->getMessage();
+            return false;
+        }
+    }
+
+    
+    function diario_aberto(){
+        $pdo = conectar();
+        try {
+            $query = $pdo->prepare("SELECT * FROM diario WHERE condicao_diario = 1");
+            $query->execute();
+            $id_diario = $query->fetch();
+            $id_diario = $id_diario['id_diario'];
+            return $id_diario;
+        } catch (PDOException $e) {
+            echo "Diario_aberto error: ".$e->getMessage();
+            return false;
+        }
+    }
+
+    function add_registro_diario($id_aluno_registro,$presenca_registro,$obs_registro,$hm_registro){
+        $pdo = conectar();
+        $prof_no_sistema = new Professor();
+        $prof_no_sistema->setNome($_SESSION['nome_pro']);
+        $id_diario_chave = $prof_no_sistema->diario_aberto();
+        $id_pro_registro = $_SESSION['idUser'];
+        try {
+            $query = $pdo->prepare("INSERT INTO diario_registro (id_aluno_registro, presenca_registro, obs_registro, hm_registro, id_pro_registro, id_diario_chave) VALUES (:id_aluno_registro, :presenca_registro, :obs_registro, :hm_registro, :id_pro_registro, :id_diario_chave)");
+            $query->bindValue(":id_aluno_registro",$id_aluno_registro);
+            $query->bindValue(":presenca_registro",$presenca_registro);
+            $query->bindValue(":obs_registro",$obs_registro);
+            $query->bindValue(":hm_registro",$hm_registro);
+            $query->bindValue(":id_pro_registro",$id_pro_registro);
+            $query->bindValue(":id_diario_chave",$id_diario_chave);
+            $query->execute();
+            return true;
+        } catch (PDOException $e) {
+            echo "Error ao add_registro_diario: ".$e->getMessage();
+            return false;
+        }
+    }
+
+    function fechar_diario(){
+        $pdo = conectar();
+        try {
+            $query = $pdo->prepare("SELECT * FROM diario WHERE condicao_diario = 1");
+            $query->execute();
+            $id_diario = $query->fetch();
+            $id_diario = $id_diario['id_diario'];
+            $sql = $pdo->prepare("UPDATE diario SET condicao_diario = 2 WHERE id_diario = $id_diario");
+            $sql->execute();
+            return true;
+        } catch (PDOException $e) {
+            echo "Error fechar_diario: ".$e->getMessage();
+            return false;
+        }
+    }
+
+    function verifica_diario(){
+        $pdo = conectar();
+        try {
+            $query = $pdo->prepare("SELECT * FROM diario WHERE condicao_diario = 1");
+            $query->execute();
+            //retorna o número de linhas afetadas pela última instrução 
+            $linhas =  $query->rowCount();
+
+            return $linhas;
+        } catch (PDOException $e) {
+            echo "Erro ao verificar diarios: ".$e->getMessage();
+            return false;
+        }
+    }
+    function lista_diario_registro(){
+        $pdo = conectar();
+
+        try {
+            $sql = $pdo->prepare("SELECT * FROM diario WHERE condicao_diario = 1");
+            $sql->execute();
+            $id_diario_chave = $sql->fetch();
+            $id_diario_chave = $id_diario_chave['id_diario'];
+            $query = $pdo->prepare("SELECT * FROM diario_registro INNER JOIN professores ON id_professor = id_pro_registro INNER JOIN alunos ON id_aluno = id_aluno_registro WHERE id_diario_chave =  $id_diario_chave ");
+            $query->execute();
+            return $query;
+        } catch (PDOException $e) {
+            echo "Erro ao lista diario_registro: ".$e->getMessage();
             return false;
         }
     }
