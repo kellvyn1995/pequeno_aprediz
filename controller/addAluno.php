@@ -24,17 +24,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     
         $aluno_cadastrado = $prof_no_sistema->add_aluno($novo_aluno);
         if ($aluno_cadastrado == true) {
-            echo '<script>window.location.href = "../view/sistema.php?alunoCadastro=1";</script>';
+            echo "<script>top.window.location='../view/aviso.php?aviso=3';</script>";
         }else{
     
-            echo '<script>window.location.href = "../view/addAluno.php?error=1";</script>';
+            echo "<script>top.window.location='../view/aviso.php?aviso=errorCadastroAluno';</script>";
         }
         
     } else {
-        echo '<script>window.location.href = "../view/addAluno.php?aviso=1";</script>';
+        echo "<script>top.window.location='../view/aviso.php?aviso=4';</script>";
     }
 }else{
-    echo 'Nenhum formulario enviado';
+    echo "<script>top.window.location='../view/aviso.php?aviso=errorNenhumFormularioEnviado';</script>";
 }
 
 ?>

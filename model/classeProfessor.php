@@ -61,7 +61,7 @@ class Professor extends Pessoa{
     function cadastra_professor($novo_professor,$senha_pro){
         $pdo = conectar();
         try {
-            $query = $pdo->prepare("INSERT INTO professores (nome_pro, email_pro, nascimento,senha_pro, telefone, rua_pro, bairro_pro, numero_pro, estado_pro, cep_pro, semanal, adicionais, admin_pro, diarios, professor, alunos, ponto, cad_alunos, cad_pro, informa) VALUES (:nome_pro, :email_pro, :nascimento, :senha_pro, :telefone, :rua_pro, :bairro_pro, :numero_pro, :estado_pro, :cep_pro, :semanal, :adicionais, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)");
+            $query = $pdo->prepare("INSERT INTO professores (nome_pro, email_pro, nascimento,senha_pro, telefone, rua_pro, bairro_pro, numero_pro, estado_pro, cep_pro, semanal, adicionais, admin_pro, diarios, professor, alunos, ponto, cad_alunos, cad_pro, informa) VALUES (:nome_pro, :email_pro, :nascimento, :senha_pro, :telefone, :rua_pro, :bairro_pro, :numero_pro, :estado_pro, :cep_pro, :semanal, :adicionais, 0, 0, 0, 0, 0, 0, 0, 0)");
             $query->bindValue(":nome_pro", $novo_professor->getNome());
             $query->bindValue(":email_pro", $novo_professor->getEmail());
             $query->bindValue(":nascimento", $novo_professor->getNascimento());
@@ -132,6 +132,18 @@ class Professor extends Pessoa{
         }
     }
 
+    function data_diario_aberto(){
+        $pdo = conectar();
+        try {
+            $query = $pdo->prepare("SELECT * FROM diario WHERE condicao_diario = 1");
+            $query->execute();
+            return $query;
+        } catch (PDOException $e) {
+            echo "Função data_diario_aberto: ".$e->getMessage();
+            return false;
+        }
+    }
+
     function add_registro_diario($id_aluno_registro,$presenca_registro,$obs_registro,$hm_registro){
         $pdo = conectar();
         $prof_no_sistema = new Professor();
@@ -186,17 +198,114 @@ class Professor extends Pessoa{
     }
     function lista_diario_registro(){
         $pdo = conectar();
-
         try {
             $sql = $pdo->prepare("SELECT * FROM diario WHERE condicao_diario = 1");
             $sql->execute();
             $id_diario_chave = $sql->fetch();
             $id_diario_chave = $id_diario_chave['id_diario'];
-            $query = $pdo->prepare("SELECT * FROM diario_registro INNER JOIN professores ON id_professor = id_pro_registro INNER JOIN alunos ON id_aluno = id_aluno_registro WHERE id_diario_chave =  $id_diario_chave ");
+            $query = $pdo->prepare("SELECT * FROM diario_registro INNER JOIN professores ON id_professor = id_pro_registro INNER JOIN alunos ON id_aluno = id_aluno_registro INNER JOIN diario ON id_diario = $id_diario_chave WHERE id_diario_chave =  $id_diario_chave ");
             $query->execute();
             return $query;
         } catch (PDOException $e) {
             echo "Erro ao lista diario_registro: ".$e->getMessage();
+            return false;
+        }
+    }
+
+    function dados_aluno($id_aluno){
+        $pdo = conectar();
+        try {
+            $query = $pdo->prepare("SELECT * FROM diario_registro INNER JOIN professores ON id_professor = id_pro_registro INNER JOIN alunos ON id_aluno = id_aluno_registro INNER JOIN diario ON id_diario = $id_aluno WHERE id_diario_chave =  $id_aluno ");
+            $query->execute();
+            return $query;
+        } catch (PDOException $e) {
+            echo "Erro nos dados_aluno: ".$e->getMessage();
+            return false;
+        }
+    }
+
+    function mensalidade($mes,$ano){
+        $pdo = conectar();
+        try {
+            $query = $pdo->prepare("SELECT * FROM mensalidade INNER JOIN alunos ON id_aluno =  id_aluno_men WHERE mes_mensalidade =  $mes AND ano_mensalidade = $ano");
+            $query->execute(); 
+            //retorna o número de linhas afetadas pela última instrução 
+            $linhas =  $query->rowCount();
+            if ($linhas == 0) {
+                $prof_no_sistema = new Professor();
+                $prof_no_sistema->setNome($_SESSION['nome_pro']);   
+                $lista_aluno_men = $prof_no_sistema->lista_alunos();
+                $lista_aluno_men->fetch(PDO::FETCH_ASSOC);
+                while ($lista_A = $lista_aluno_men->fetch(PDO::FETCH_ASSOC)){
+                    $sql = $pdo->prepare("INSERT INTO mensalidade (id_aluno_men,mes_mensalidade,ano_mensalidade,situacao_mensalidade) VALUES (:id_alunoA,:mes,:ano,1)");
+                    $sql->bindValue(":id_alunoA",$lista_A['id_aluno']);
+                    $sql->bindValue(":mes",$mes);
+                    $sql->bindValue(":ano",$ano);
+                    $sql->execute();
+                } 
+            }else{
+                return $query;
+            }
+        } catch (PDOException $e) {
+            echo "Erro na busca da mensalidade: ".$e->getMessage();
+            return false;
+        }
+    }
+    
+    function total_hr($id_do_aluno,$ano,$mes){
+        //->fetch(PDO::FETCH_ASSOC)
+        $pdo = conectar();
+        try {
+            $query = $pdo->prepare("SELECT SUM(hm_registro) AS total FROM diario INNER JOIN diario_registro ON id_diario  = id_diario_chave WHERE data_diario BETWEEN '$ano-$mes-01' AND '$ano-$mes-31' AND id_aluno_registro = $id_do_aluno
+            ");
+            // $query = $pdo->prepare("SELECT SUM(hm_registro) AS total FROM diario INNER JOIN diario_registro ON id_diario  =  id_aluno_registro AND data_diario BETWEEN '$ano-$mes-01' AND '$ano-$mes-31' WHERE id_aluno_registro = $id_do_aluno");
+            $query->execute();
+            return $query;
+        } catch (PDOException $e) {
+            echo "Erro ao calcular total de horas: ".$e->getMessage();
+            return false;
+        }
+    }
+
+    function mensalidade_st($id_do_aluno,$ano,$mes){
+        $pdo = conectar();
+        try {
+            $query = $pdo->prepare("SELECT situacao_mensalidade FROM mensalidade WHERE mes_mensalidade =  $mes AND ano_mensalidade = $ano AND id_aluno_men = $id_do_aluno");
+            $query->execute(); 
+            return $query;
+        
+        } catch (PDOException $e) {
+            echo "Erro na busca situação da mensalidade do id do anulo: ".$e->getMessage();
+            return false;
+        }
+    }
+
+    function salva_mensalidade($id_do_aluno,$situacao,$mes,$ano){
+        $pdo = conectar();
+        try {
+            $query = $pdo->prepare("UPDATE mensalidade SET situacao_mensalidade = $situacao WHERE mes_mensalidade =  $mes AND ano_mensalidade = $ano AND id_aluno_men = $id_do_aluno");
+            $query->execute(); 
+            return $query;
+        
+        } catch (PDOException $e) {
+            echo "Erro em salva mensalidade: ".$e->getMessage();
+            return false;
+        }
+    }
+
+    function nivel_acesso($tela,$id_professor){
+        $pdo = conectar();
+        try {
+            $query = $pdo->prepare("SELECT $tela FROM professores WHERE id_professor = $id_professor");
+            $query->execute(); 
+            $linha = $query->fetch(PDO::FETCH_ASSOC);
+            if ($linha[$tela] == 1) {
+                return true;
+            }else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo "Erro nivel de acesso: ".$e->getMessage();
             return false;
         }
     }

@@ -1,5 +1,6 @@
 <?php
 include_once '../controller/professores.php';
+include_once '../controller/verifica.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,7 +19,6 @@ include_once '../controller/professores.php';
     <div class="container">
     <div class="alinhamento-bv">
         <div class="container-b">
-            
                 <div class="formulario-Header">
                     <h3 class="formulario-Header-h3" >Professores</h3>
                 </div>
@@ -117,14 +117,14 @@ include_once '../controller/professores.php';
                                             <?php $dest = $lista["ponto"];?>
                                             <?php switch($dest) : case 1 : ?>
                                                 <option selected>Acesso concedido</option>
-                                                <option value="2">Acesso Negado</option> 
+                                                <option value="0">Acesso Negado</option> 
                                             <?php break; case 0 : ?>
                                                 <option selected>Acesso Negado</option>
                                                 <option value="1">Acesso concedido</option>
                                             <?php break; default : ?>
                                                 <option selected>Acesso</option>
                                                 <option value="1">Acesso concedido</option>
-                                                <option value="2">Acesso Negado</option> 
+                                                <option value="0">Acesso Negado</option> 
                                             <?php endswitch; ?>
                                             </select>
                                         <hr>
@@ -134,14 +134,14 @@ include_once '../controller/professores.php';
                                             <?php $dest = $lista["cad_alunos"];?>
                                             <?php switch($dest) : case 1 : ?>
                                                 <option selected>Acesso concedido</option>
-                                                <option value="2">Acesso Negado</option> 
+                                                <option value="0">Acesso Negado</option> 
                                             <?php break; case 0 : ?>
                                                 <option selected>Acesso Negado</option>
                                                 <option value="1">Acesso concedido</option>
                                             <?php break; default : ?>
                                                 <option selected>Acesso</option>
                                                 <option value="1">Acesso concedido</option>
-                                                <option value="2">Acesso Negado</option> 
+                                                <option value="0">Acesso Negado</option> 
                                             <?php endswitch; ?>
                                             </select>
                                         <hr>
@@ -151,14 +151,14 @@ include_once '../controller/professores.php';
                                             <?php $dest = $lista["cad_pro"];?>
                                             <?php switch($dest) : case 1 : ?>
                                                 <option selected>Acesso concedido</option>
-                                                <option value="2">Acesso Negado</option> 
+                                                <option value="0">Acesso Negado</option> 
                                             <?php break; case 0 : ?>
                                                 <option selected>Acesso Negado</option>
                                                 <option value="1">Acesso concedido</option>
                                             <?php break; default : ?>
                                                 <option selected>Acesso</option>
                                                 <option value="1">Acesso concedido</option>
-                                                <option value="2">Acesso Negado</option> 
+                                                <option value="0">Acesso Negado</option> 
                                             <?php endswitch; ?>
                                             </select>
                                         <hr>
@@ -168,14 +168,14 @@ include_once '../controller/professores.php';
                                             <?php $dest = $lista["cad_pro"];?>
                                             <?php switch($dest) : case 1 : ?>
                                                 <option selected>Acesso concedido</option>
-                                                <option value="2">Acesso Negado</option> 
+                                                <option value="0">Acesso Negado</option> 
                                             <?php break; case 0 : ?>
                                                 <option selected>Acesso Negado</option>
                                                 <option value="1">Acesso concedido</option>
                                             <?php break; default : ?>
                                                 <option selected>Acesso</option>
                                                 <option value="1">Acesso concedido</option>
-                                                <option value="2">Acesso Negado</option> 
+                                                <option value="0">Acesso Negado</option> 
                                             <?php endswitch; ?>
                                             </select>
                                         <hr>

@@ -1,5 +1,6 @@
 <?php
 include_once '../controller/lista_diarios.php';
+include_once '../controller/verifica.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,12 +19,12 @@ include_once '../controller/lista_diarios.php';
     <div class="alinhamento-bv">
         <div class="container-b">
                 <div class="formulario-Header">
-                    <h3 class="formulario-Header-h3" >Apontamento Diário de Alunos</h3>
+                    <h3 class="formulario-Header-h3" >Apontamento Diário de Alunos <?php echo $novaData;?></h3>
                 </div>
                 <div class="row">
                   <form action="../controller/diarios.php" method="POST">
                   <div class="container">
-                    <div class="formulario-Header-h2-animacao m-2 row row-cols-1 row-cols-sm-2 row-cols-md-6">
+                    <div class="formulario-Header-h2-animacao m-2 row row-cols-md-12 ">
                       <div class="col">
                       <select class="form-select col m-2" aria-label="Default select" name="id_aluno_registro">
                           <option selected>Alunos</option>
@@ -69,13 +70,13 @@ include_once '../controller/lista_diarios.php';
                   </div>
                 </form>
                   <div class="container formulario-Header-h2-animacao">
-                    <table class="table">
+                    <table class="table table-hover">
                       <thead>
                         <tr>
                           <th scope="col ">Nome</th>
                           <th scope="col">Presença</th>
                           <th scope="col">OBS</th>
-                          <th scope="col">Hs/ministradas</th>
+                          <th scope="col">Hrs/ministradas</th>
                           <th scope="col">Professor</th>
                         </tr>
                       </thead>
@@ -85,9 +86,13 @@ include_once '../controller/lista_diarios.php';
                       ?>
                         <tr>
                           <th scope="row"><?php echo $lista_reg["nome_aluno"]; ?></th>
-                          <td><input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioCheckedDisabled" checked disabled></td>
-                          <td><input class="form-control form-control-sm " type="text" placeholder="<?php echo $lista_reg["obs_registro"]; ?>" aria-label=".form-control-sm"></td>
-                          <td><input class="form-control form-control-sm " type="number" placeholder="<?php echo $lista_reg["hm_registro"]; ?>" aria-label=".form-control-sm"></td>
+                          <?php if ($lista_reg["presenca_registro"] == 1) {?>
+                            <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked disabled></td>
+                          <?php }else {?>
+                            <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" disabled></td>
+                          <?php }?>
+                          <td><input class="form-control form-control-sm " type="text" placeholder="<?php echo $lista_reg["obs_registro"]; ?>" aria-label=".form-control-sm" disabled></td>
+                          <td><input class="form-control form-control-sm " type="text" placeholder="<?php echo $lista_reg["hm_registro"]; ?>" aria-label=".form-control-sm" disabled></td>
                           <td><label for=""><?php echo $lista_reg["nome_pro"]; ?></label></td>
                         </tr>
                       <?php }?>
@@ -97,7 +102,7 @@ include_once '../controller/lista_diarios.php';
 
                   <form action="../controller/diarios.php" method="POST">
                   <div class="p-3 formulario-Header-h2-animacao">
-                  <a class="btn btn-primary btn-cd position-absolute bottom-10 start-0 m-1" href="../view/sistema.php" role="button">Inicio</a>
+                  <a class="btn btn-primary btn-cd position-absolute bottom-10 start-0 m-1" href="../view/sistema.php?pagina=sistema" role="button">Inicio</a>
                         <button class="btn btn-success btn-cd" name="acao" value="fecha_diario">Fecha diario</button>
                   </div>
                   </form>

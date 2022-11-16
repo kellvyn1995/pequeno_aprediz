@@ -1,3 +1,6 @@
+<?php
+include_once '../controller/verifica.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,7 +15,7 @@
 <body>
     <div class="alinhamento-bv">
         <div class="container-b">
-            <form action="../controller/addProfessor.php" method="get" id="form_addProfessor">
+            <form action="../controller/addProfessor.php" method="POST" id="form_addProfessor">
                 <div class="formulario-Header">
                     <h3 class="formulario-Header-h3" >Cadastro Professor</h3>
                 </div>

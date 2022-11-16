@@ -20,9 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $atualizar_acesso = $atualizar->atualizar_acesso($diarios, $professor, $alunos, $ponto, $cad_alunos ,$cad_pro ,$informa ,$id);
 
    if ($atualizar_acesso) {
-        echo 'tudo certo';
+    echo "<script>top.window.location='../view/aviso.php?aviso=2';</script>";
     } else {
-        echo 'Deu tudo errado';
+        echo "<script>top.window.location='../view/aviso.php?aviso=error';</script>";
     }
     
 

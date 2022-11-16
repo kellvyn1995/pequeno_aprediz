@@ -7,7 +7,7 @@ include_once '../model/logado.php';
     $diario_aberto = $prof_no_sistema->verifica_diario();
 
     if ($diario_aberto == 1) {
-        echo '<script>window.location.href = "../view/diarios.php";</script>';
+        echo '<script>window.location.href = "../view/diarios.php?pagina=diarios";</script>';
     } else {
         echo '<script>window.location.href = "../view/aberturaDiario.html";</script>';
     }

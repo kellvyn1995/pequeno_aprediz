@@ -1,5 +1,6 @@
 <?php
 include_once '../controller/verifica.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
